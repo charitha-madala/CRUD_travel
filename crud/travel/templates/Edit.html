@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Report</title>
+</head>
+<body style="background-color: rgb(173, 102, 102);">
+    <center>
+        <h1>Passenger DETAILS</h1>
+        
+        <form method="POST" action="/Update/{{Passenger.id}}">
+        {% csrf_token %}
+        
+        <table border="5" style="line-height: 30px;background-color: rgb(190, 188, 188);">
+            <tr>
+                <td style="background-color: gray;"><h3>Item id</h3></td>
+                <td style="text-align: center;"><input type="text" name="id" value="{{Passenger.id}}" readonly style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td style="background-color: gray;"><h3>Name</h3></td>
+                <td style="text-align: center;"><input type="text" name="name" value="{{Pasenger.name}}" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td style="background-color: gray;"><h3>Age</h3></td>
+                <td style="text-align: center;">
+                    <select name="age">
+                        <option selected disabled="false">{{Passenger.age}}</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21+</option>
+                    </select>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td style="background-color: gray;"><h3>Bought from</h3></td>
+                <td style="text-align: center;"><input type="text" name="destination" value="{{Passenger.destination}}" style="text-align: center;"></td>
+            </tr>
+
+            <tr>
+                <td style="background-color: gray;column-width: 120px;"><h3>Date</h3></td>
+                <td style="column-width: 200px;text-align: center;"><input type="date" name="date" value="{{Passenger.date}}"></td>
+            </tr>
+
+            <tr>
+                <td style="background-color: gray;column-width: 120px;"><h3>Price(in Rs.)</h3></td>
+                <td style="column-width: 200px;text-align: center;"><input type="number" name="price" value="{{Passenger.price}}"></td>
+            </tr>
+
+            <tr>
+                <td style="background-color: gray;column-width: 120px;"><h3>Rt_pcr done?</h3></td>
+                <td style="column-width: 200px;text-align: center;"><input type="text" name="rt_pcr" value="{{Passenger.rt_pcr}}"></td>
+            </tr>
+
+
+
+            <tr>
+                <td style="text-align: center;"><input type="submit" value="Update"></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style="color: green;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            
+        </table>
+        <a href="http://127.0.0.1:8000/">View List</a>
+    </form>
+    </center>
+
+    
+    
+</body>
+</html>

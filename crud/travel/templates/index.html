@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Report</title>
+</head>
+<body style="background-color: rgb(253, 253, 253);">
+    <center>
+        <h1>Passenger</h1>
+       
+        <a href="{% url 'form_display' %}">Enter Details</a>
+        <table border="5" style="background-color: rgb(75, 74, 74);line-height: 50px;">
+            <tr style="background-color: rgb(202, 98, 98);">
+                <th><h3> Passenger id</h3></th>
+                <th><h3>Name</h3></th>
+                <th><h3>Age</h3></th>
+                <th><h3>Destination</h3></th>
+                <th><h3>Date</h3></th>
+                <th><h3>Price(in Rs.)</h3></th>
+                <th><h3>Rt_pcr</h3></th>
+                <th><h3>Update</h3></th>
+                <th><h3>Remove</h3></th>
+                
+            </tr>
+
+            {% for result in data %}
+            <tr>
+                <td style="text-align: center;">{{result.id}}</td>
+                <td style="text-align: center;">{{result.name}}</td>
+                <td style="text-align: center;">{{result.age}}</td>
+                <td style="text-align: center;">{{result.destination}}</td>
+                <td style="text-align: center;">{{result.date}}</td>
+                <td style="text-align: center;">{{result.price}}</td>
+                <td style="text-align: center;">{{result.rt_pcr}}</td>
+                <td style="column-width: 60px; text-align: center"><a href="Edit/{{result.id}}">Edit</a></td>
+                <td style="column-width: 50px; text-align: center"><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Report</title>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+    <center>
+        <h1>Travel Details</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1" style="background-color: rgb(255, 255, 255);line-height: 50px;">
+            <tr>
+                <td style="background-color: #808080; text-align:center"><h3>Name</h3></td>
+                <td style="text-align: center;"><input type="text" placeholder="Enter  name" name="name"></td>
+            </tr>
+            <tr>
+                <td style="background-color: #808080;text-align:center"><h3>Age</h3></td>
+                <td style="text-align: center;"><input type="number" name="Age"></td>
+                
+            </tr>
+            <tr>
+                <td style="background-color: hsl(0, 0%, 50%);text-align:center"><h3>Destination</h3></td>
+                <td style="text-align: center;"><input type="radio" name="destination" value="delhi">Delhi
+                    <input type="radio" name="destination" value="mumbai">Mumbai</td>
+            </tr>
+            
+            <tr>
+                <td style="background-color: gray; text-align:center"><h3>Date</h3></td>
+                <td style="text-align: center;"><input type="date" name="date"></td>
+            </tr>
+
+            <tr>
+                <td style="background-color: #808080; text-align:center"><h3>Price(in Rs.)</h3></td>
+                <td style="text-align: center;">
+                    <select name="amount">
+                        <option selected disabled="true">-- Select Price range --</option>
+                        <option>less than 5000</option>
+                        <option>5000-8000</option>
+                        <option>8000-10000</option>
+                        <option>10000+</option>
+                    </select>
+                </td>
+               
+            </tr>
+
+            <tr>
+                <td style="background-color: gray; text-align:center"><h3>Rt_pcr done?</h3></td>
+                <td style="text-align: center;"><input type="checkbox" id="Yes" name="gst_applied" value="Yes">
+                                                <label for="Yes" style="margin-right: 2em;">Yes</label>
+                                                <input type="checkbox" id="No" name="gst_applied" value="No">
+                                                <label for="No" style="margin-right: 4em;">No</label></td>
+            </tr>
+
+
+            <tr>
+                <td style="text-align: center;"><input type="submit" value="Add"/></td>
+                <td style="column-width: 250px;">
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style="color: green;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+                
+            </tr>
+            
+            
+        </table>
+        
+        <a href="http://127.0.0.1:8000/">Show Passenger List</a>
+        
+    </form>
+    
+    </center>
+    
+</body>
+</html>
